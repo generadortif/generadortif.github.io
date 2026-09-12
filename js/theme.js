@@ -30,7 +30,7 @@
 
   function updateButton() {
     const eff = effectiveTheme();
-    btn.textContent = eff === 'dark' ? '☀️' : '🌙';
+    btn.textContent = eff === 'dark' ? '☀️ Modo claro' : '🌙 Modo oscuro';
     btn.title = eff === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro';
     btn.setAttribute('aria-label', btn.title);
   }

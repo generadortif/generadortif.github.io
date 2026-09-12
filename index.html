@@ -21,28 +21,32 @@
 <div class="app-shell">
 
   <header class="topbar">
-    <div class="brand">
-      <h1>📘 Generador de TIF</h1>
-      <div class="brand-meta">
-        <span class="brand-subtitle">Modalidad: Propuesta de Intervención · Formato APA 7</span>
-        <span class="brand-credits">Autor: Alejandro Cano · Modelo de plantilla propuesto por el Dr. Sergio Marcelo Puglieso</span>
+    <div class="topbar-row topbar-row-top">
+      <div class="brand">
+        <h1>📘 Generador de TIF</h1>
+        <div class="brand-meta">
+          <span class="brand-subtitle">Modalidad: Propuesta de Intervención · Formato APA 7</span>
+          <span class="brand-credits">Autor: Alejandro Cano · Modelo de plantilla propuesto por el Dr. Sergio Marcelo Puglieso</span>
+        </div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+        <span class="progress-label" id="progressLabel">0% completo</span>
       </div>
     </div>
-    <div class="progress-wrap">
-      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
-      <span class="progress-label" id="progressLabel">0% completo</span>
-    </div>
-    <div class="actions">
-      <span id="saveStatus" style="font-size:0.75rem;color:var(--muted);align-self:center;"></span>
-      <button class="btn-ghost" id="btnFileBackup" hidden>📁 Activar respaldo en archivo</button>
-      <button class="btn-ghost" id="btnNuevo">Nuevo</button>
-      <button class="btn-ghost" id="btnGuardarJson">💾 Guardar proyecto</button>
-      <button class="btn-ghost" id="btnAbrirJson">📂 Abrir proyecto</button>
-      <input type="file" id="fileInputJson" accept="application/json" hidden>
-      <button class="btn-secondary" id="btnVistaPrevia">👁 Vista previa</button>
-      <button class="btn-secondary" id="btnFichas">📑 Fichas de lectura</button>
-      <button class="btn-primary" id="btnExportarDocx">⬇ Exportar DOCX</button>
-      <button class="theme-toggle" id="btnThemeToggle" title="Cambiar tema" aria-label="Cambiar tema">🌙</button>
+    <div class="topbar-row topbar-row-actions">
+      <div class="actions">
+        <span id="saveStatus" style="font-size:0.75rem;color:var(--muted);align-self:center;"></span>
+        <button class="btn-ghost" id="btnFileBackup" hidden>📁 Activar respaldo en archivo</button>
+        <button class="btn-ghost" id="btnNuevo">Nuevo</button>
+        <button class="btn-ghost" id="btnGuardarJson">💾 Guardar proyecto</button>
+        <button class="btn-ghost" id="btnAbrirJson">📂 Abrir proyecto</button>
+        <input type="file" id="fileInputJson" accept="application/json" hidden>
+        <button class="btn-secondary" id="btnVistaPrevia">👁 Vista previa</button>
+        <button class="btn-secondary" id="btnFichas">📑 Fichas de lectura</button>
+        <button class="btn-primary" id="btnExportarDocx">⬇ Exportar DOCX</button>
+      </div>
+      <button class="theme-toggle" id="btnThemeToggle" title="Cambiar tema" aria-label="Cambiar tema">🌙 Modo oscuro</button>
     </div>
   </header>
 
