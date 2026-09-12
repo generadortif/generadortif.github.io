@@ -37,14 +37,22 @@
     <div class="topbar-row topbar-row-actions">
       <div class="actions">
         <span id="saveStatus" style="font-size:0.75rem;color:var(--muted);align-self:center;"></span>
-        <button class="btn-ghost" id="btnFileBackup" hidden>📁 Activar respaldo en archivo</button>
-        <button class="btn-ghost" id="btnNuevo">Nuevo</button>
-        <button class="btn-ghost" id="btnGuardarJson">💾 Guardar proyecto</button>
-        <button class="btn-ghost" id="btnAbrirJson">📂 Abrir proyecto</button>
-        <input type="file" id="fileInputJson" accept="application/json" hidden>
         <button class="btn-secondary" id="btnVistaPrevia">👁 Vista previa</button>
         <button class="btn-secondary" id="btnFichas">📑 Fichas de lectura</button>
         <button class="btn-primary" id="btnExportarDocx">⬇ Exportar DOCX</button>
+
+        <!-- Guardado/backup: uso ocasional, en mobile se agrupan en "Más opciones"
+             para no competir en pantalla con las acciones de uso frecuente. -->
+        <div class="actions-more-wrap" id="actionsMoreWrap">
+          <button type="button" class="btn-ghost actions-more-toggle" id="btnMoreActions" aria-haspopup="true" aria-expanded="false">⋯ Más opciones</button>
+          <div class="actions-more-menu" id="actionsMoreMenu">
+            <button class="btn-ghost" id="btnNuevo">Nuevo</button>
+            <button class="btn-ghost" id="btnGuardarJson">💾 Guardar proyecto</button>
+            <button class="btn-ghost" id="btnAbrirJson">📂 Abrir proyecto</button>
+            <button class="btn-ghost" id="btnFileBackup" hidden>📁 Activar respaldo en archivo</button>
+          </div>
+        </div>
+        <input type="file" id="fileInputJson" accept="application/json" hidden>
       </div>
       <button class="theme-toggle" id="btnThemeToggle" title="Cambiar tema" aria-label="Cambiar tema">🌙 Modo oscuro</button>
     </div>

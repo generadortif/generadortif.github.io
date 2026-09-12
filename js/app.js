@@ -33,6 +33,28 @@
   btnMobileNav.addEventListener('click', openMobileSidebar);
   btnCloseSidebar.addEventListener('click', closeMobileSidebar);
 
+  // ---------------- Menú "Más opciones" (mobile): Nuevo / Guardar / Abrir / Respaldo ----------------
+  const actionsMoreWrap = document.getElementById('actionsMoreWrap');
+  const actionsMoreMenu = document.getElementById('actionsMoreMenu');
+  const btnMoreActions = document.getElementById('btnMoreActions');
+  btnMoreActions.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = actionsMoreMenu.classList.toggle('menu-open');
+    btnMoreActions.setAttribute('aria-expanded', String(isOpen));
+  });
+  document.addEventListener('click', (e) => {
+    if (!actionsMoreWrap.contains(e.target)) {
+      actionsMoreMenu.classList.remove('menu-open');
+      btnMoreActions.setAttribute('aria-expanded', 'false');
+    }
+  });
+  actionsMoreMenu.querySelectorAll('button').forEach((b) => {
+    b.addEventListener('click', () => {
+      actionsMoreMenu.classList.remove('menu-open');
+      btnMoreActions.setAttribute('aria-expanded', 'false');
+    });
+  });
+
   function scheduleAutosave() {
     saveStatus.textContent = 'Guardando…';
     clearTimeout(saveTimer);

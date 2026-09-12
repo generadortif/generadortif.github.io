@@ -118,6 +118,13 @@ body {
 .topbar h1 { font-size: 1.05rem; margin: 0; white-space: nowrap; color: var(--text); }
 .topbar .brand { display: flex; align-items: center; gap: 0.6rem; }
 .topbar .actions { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+
+/* En escritorio, "Más opciones" no se usa: los botones que agrupa fluyen
+   igual que el resto dentro de .actions (ver override en el media query
+   de mobile más abajo, donde sí se convierte en un menú desplegable). */
+.actions-more-wrap { display: contents; }
+.actions-more-toggle { display: none; }
+.actions-more-menu { display: contents; }
 .brand-meta { display: flex; flex-direction: column; line-height: 1.3; }
 .brand-subtitle { font-size: 0.78rem; color: var(--muted); }
 .brand-credits { font-size: 0.7rem; color: var(--muted); opacity: 0.85; }
@@ -360,4 +367,28 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   .group-box, .ref-form-grid, .foda-grid, .ficha-form-grid { grid-template-columns: 1fr; }
   .fichas-panel { padding: 1rem; }
   .content { padding: 1rem; }
+
+  /* "Más opciones": agrupa Nuevo / Guardar / Abrir proyecto / Respaldo en
+     archivo detrás de un botón, ya que en el celular se usan poco (y el
+     respaldo en archivo directamente no existe en navegadores móviles). */
+  .actions-more-wrap { display: block; position: relative; }
+  .actions-more-toggle { display: inline-flex; }
+  .actions-more-menu {
+    display: none;
+    flex-direction: column;
+    gap: 0.4rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 0.4rem;
+    min-width: 230px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.5rem;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+    z-index: 30;
+  }
+  .actions-more-menu.menu-open { display: flex; }
+  .actions-more-menu .btn-ghost { display: flex; width: 100%; text-align: left; justify-content: flex-start; }
 }
