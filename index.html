@@ -50,8 +50,16 @@
     </div>
   </header>
 
+  <button type="button" class="mobile-nav-toggle" id="btnMobileNav">
+    <span>☰</span> <span id="mobileNavLabel">Portada</span> <span class="mobile-nav-caret">▾</span>
+  </button>
+
   <div class="main-layout">
-    <nav class="sidebar">
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-mobile-header">
+        <strong>Secciones del TIF</strong>
+        <button type="button" class="btn-icon" id="btnCloseSidebar" aria-label="Cerrar">✕</button>
+      </div>
       <ul class="nav-list" id="navList"></ul>
     </nav>
 

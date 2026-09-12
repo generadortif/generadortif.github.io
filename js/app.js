@@ -23,6 +23,16 @@
   const btnNext = document.getElementById('btnNext');
   const saveStatus = document.getElementById('saveStatus');
 
+  // ---------------- Navegación móvil (cajón desplegable de secciones) ----------------
+  const sidebarEl = document.getElementById('sidebar');
+  const mobileNavLabel = document.getElementById('mobileNavLabel');
+  const btnMobileNav = document.getElementById('btnMobileNav');
+  const btnCloseSidebar = document.getElementById('btnCloseSidebar');
+  function openMobileSidebar() { sidebarEl.classList.add('sidebar-open'); }
+  function closeMobileSidebar() { sidebarEl.classList.remove('sidebar-open'); }
+  btnMobileNav.addEventListener('click', openMobileSidebar);
+  btnCloseSidebar.addEventListener('click', closeMobileSidebar);
+
   function scheduleAutosave() {
     saveStatus.textContent = 'Guardando…';
     clearTimeout(saveTimer);
@@ -53,11 +63,12 @@
       li.className = 'nav-item' + (idx === currentIndex ? ' active' : '');
       const ok = results[section.id].valid;
       li.innerHTML = `<span class="nav-badge ${ok ? 'ok' : 'pending'}">${ok ? '✓' : idx + 1}</span><span>${section.short}</span>`;
-      li.addEventListener('click', () => { currentIndex = idx; renderAll(); });
+      li.addEventListener('click', () => { currentIndex = idx; renderAll(); closeMobileSidebar(); });
       navList.appendChild(li);
     });
     progressFill.style.width = `${progress}%`;
     progressLabel.textContent = `${progress}% completo`;
+    mobileNavLabel.textContent = `${currentIndex + 1}. ${SECTIONS[currentIndex].short.replace(/^\d+\.\s*/, '')}`;
   }
 
   function renderForm() {
