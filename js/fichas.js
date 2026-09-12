@@ -367,7 +367,9 @@ function renderFichasPanel(root, state, onChange) {
   root.innerHTML = '';
   const rerender = () => renderFichasPanel(root, state, onChange);
 
-  const intro = el('p', { class: 'field-help', text: 'Cargá acá las fichas de lectura que consideres necesarias (no hace falta una por cada fuente citada). El sistema las usa para avisarte, de forma orientativa, si las citas que escribiste en el TIF tienen respaldo.' });
+  const introBox = el('div', { class: 'ficha-box' }, [
+    el('p', { class: 'field-help', text: 'Cargá acá las fichas de lectura que consideres necesarias (no hace falta una por cada fuente citada). El sistema las usa para avisarte, de forma orientativa, si las citas que escribiste en el TIF tienen respaldo.' }),
+  ]);
 
   const formBox = el('div', { class: 'ficha-box' });
   renderFichaForm(formBox, state, onChange, rerender);
@@ -380,7 +382,7 @@ function renderFichasPanel(root, state, onChange) {
   const refreshBtn = el('button', { type: 'button', class: 'btn-secondary btn-small', text: '🔍 Volver a analizar el texto' });
   refreshBtn.addEventListener('click', () => renderTrazabilidad(trazBox, state));
 
-  root.appendChild(intro);
+  root.appendChild(introBox);
   root.appendChild(formBox);
   root.appendChild(listBox);
   root.appendChild(el('hr'));
